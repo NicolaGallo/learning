@@ -70,6 +70,17 @@ $(document).ready(function() {
   });
 });
 
+function inName(name) {
+
+  // L4.11
+  name=name.trim().split(" ");
+  name[1]= name[1].toUpperCase();
+  name[0] = name[0].slice(0,1).toUpperCase()+name[0].slice(1).toLowerCase();
+
+  return name[0]+" "+name[1];
+
+}
+
 /*
 The next few lines about clicks are for the Collecting Click Locations quiz in the lesson Flow Control from JavaScript Basics.
 */
@@ -86,7 +97,8 @@ function logClicks(x,y) {
 }
 
 $(document).click(function(loc) {
-  // your code goes here!
+  //DONE BY ME
+  logClicks(loc.pageX, loc.pageY);
 });
 
 
@@ -102,6 +114,7 @@ var map;    // declares a global map variable
 /*
 Start here! initializeMap() is called when page is loaded.
 */
+
 function initializeMap() {
 
   var locations;
@@ -239,11 +252,11 @@ Uncomment the code below when you're ready to implement a Google Map!
 */
 
 // Calls the initializeMap() function when the page loads
-//window.addEventListener('load', initializeMap);
+window.addEventListener('load', initializeMap);
 
 // Vanilla JS way to listen for resizing of the window
 // and adjust map bounds
-//window.addEventListener('resize', function(e) {
+window.addEventListener('resize', function(e) {
   //Make sure the map bounds get updated on page resize
-//  map.fitBounds(mapBounds);
-//});
+map.fitBounds(mapBounds);
+});
