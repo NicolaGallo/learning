@@ -18,9 +18,16 @@ h6 {
   overflow: auto;
 }
 
+.work-entry{
+  padding: 0 5%;
+
+}
+
+
 .education-entry,
-.work-entry,
+
 .project-entry {
+
   padding: 0 5%;
 }
 
@@ -218,4 +225,23 @@ span {
   .biopic {
     display: block;
   }
+}
+.logo-companyDiv{
+
+   height: inherit;
+   width: inherit;
+  display: inline-block;
+ }
+
+.logo-company{
+
+  height: 60px;
+  width: 60px;
+  margin: 5px;
+
+}
+
+.work-info-container{
+
+  display: inline-block;
 }

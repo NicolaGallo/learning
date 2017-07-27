@@ -72,8 +72,8 @@ This is empty on purpose! Your code to build the resume will go here.
 			"title": "Software developer",
 			"location": "Naples, Italy",
 			"dates":"2015- present",
-			"description":"Working mainly on Business System Support (BSS).Back-end & Front End Developer for business applications, order managment and catalogs."
-
+			"description":"Working mainly on Business System Support (BSS).Back-end & Front End Developer for business applications, order managment and catalogs.",
+			"companyLogo":"images/EricssonLogo.png"
 		},
 
 		{
@@ -81,16 +81,17 @@ This is empty on purpose! Your code to build the resume will go here.
 			"title": "Software developer",
 			"location": "Lima, Peru",
 			"dates":"March 2017- May 2017",
-			"description":"Buiding Order Capture Application Design from customer requirments, writing HLD, LLD "
+			"description":"Buiding Order Capture Application Design from customer requirments, writing HLD, LLD",
+			"companyLogo":"images/EricssonLogo.png"
+
 		},
-
-
 		{
 			"employer": "Ericsson",
 			"title": "Software developer",
 			"location": "Toronto, Canada",
 			"dates":"April 2016- May 2016",
-			"description":"Training on the job with experienced peoples in Ericsson Order Care Product headquarter in Toronto about new Order Capture system IWS.."
+			"description":"Training on the job with experienced peoples in Ericsson Order Care Product headquarter in Toronto about new Order Capture system IWS.",
+			"companyLogo":"images/EricssonLogo.png"
 		},
 
 
@@ -99,7 +100,8 @@ This is empty on purpose! Your code to build the resume will go here.
 			"title": "Software developer",
 			"location": "Naples, Italy",
 			"dates":"2014-2015",
-			"description":"Working as a consultant for Ericsson during this period I've worked in various development teams for different projects as Altamira by Telefonica and  N&SIS for h3g Italy."
+			"description":"Working as a consultant for Ericsson during this period I've worked in various development teams for different projects as Altamira by Telefonica and  N&SIS for h3g Italy.",
+			"companyLogo":"https://media.licdn.com/mpr/mpr/shrinknp_100_100/p/3/000/01f/1c0/2b0c784.png"
 
 		}
 	]
@@ -110,21 +112,50 @@ This is empty on purpose! Your code to build the resume will go here.
 	"projects":[
 		{
 		"title":"AMX peru",
-		"dates":"2017-present",
+		"dates":"mar. 2017-Jul.2017",
 		"description":"Working in a design team, that builds from customer requirements, a complete BSS platform for Claro Peru. I'm the designer of the sales part, handling IWS (part of Ericsson Order care) platform. Build high /low level design documents that contains a full stack (back-end & front-end) order capture solution. Design the integration between Order capture platform and CRM. ",
-
+		"tecnology":"Microsoft Office,Bizagi Modler,IWS,Ericsson order Care",
 		"images":["URL1","URL2","URL3"]
 
 		},
 		{
 			"title":"DTC Lab",
-			"dates":"2016-2017",
+			"dates":"feb.2016-feb.2017",
 			"description":"Software developer in a international team. I work to integrate EOC (Ericsson Order Care) and IWS (Integrated Workstation) through custom adapters. Management of Order Capture flows, Customers catalogs and products. Building E2E interaction between Back-end and Front-end.Integration of Order capture Platform with CRM system. ",
-
+			"tecnology":"",
 			"images":["URL1","URL2","URL3"]
 
 
-		}
+		},
+
+		{
+			"title":"CDOM-OOREDOO (Oredoo-Tunisia)",
+			"dates":"Jul. 2015- Feb. 2017",
+			"description":"I am part of the international development team. I'm building business Workflows for Ooredoo's Order Management System using Ericsson's tool ECM (Ericsson Catalog Manager)/EOC(Ericsson Order Care).Development and Low Level Design. Ericsson Velocity Studio, Ericsson Enterprise Product Catalog, SQL, SVN, SOAP.",
+			"tecnology":"JAVA EE/SE,WebLogic,Application Server,XML,AJAX,JavaScript,SVN, Eclipse IDE,Toad for Oracle",
+			"images":["URL1","URL2","URL3"]
+
+
+		},
+		{
+			"title":"New Generation AltamirA (Telefonica- Spain)",
+			"dates":"Feb. 2015- Apr. 2017",
+			"description":"I am in an international team, I built from scratch a centralized management system for the worldwide offer and catalog of Telefonica.Developing functional use-cases from scratch.",
+			"tecnology":"CW Velocity Studio, CW Enterprise Product Catalog, SQL, GIT",
+			"images":["URL1","URL2","URL3"]
+
+
+		},
+		{
+			"title":"ESoft Mobile",
+			"dates":"Jul. 2015- Feb. 2017",
+			"description":"Development of the native part of hybrid Android app E-Soft (Ericsson).Integration of the barcode, QR, Aztec codes reader.Push notifications service.",
+			"tecnology":"JAVA,Android SDK,Jquery Mobile",
+			"images":["URL1","URL2","URL3"]
+
+
+		},
+
 	]
 	}
 
@@ -138,7 +169,7 @@ This is empty on purpose! Your code to build the resume will go here.
 			$(".project-entry:last").append( HTMLprojectTitle.replace("%data%", this.projects[t].title));
 			$(".project-entry:last").append( HTMLprojectDates.replace("%data%", this.projects[t].dates));
 			$(".project-entry:last").append( HTMLprojectDescription.replace("%data%", this.projects[t].description));
-			//$(".project-entry:last").append( HTMLprojectImage .replace("%data%", this.projects[t].images[0])); // to cycle
+		//	$(".project-entry:last").append( HTMLprojectImage .replace("%data%", this.projects[t].images[0])); // to cycle
 		}
 		
 	}
@@ -153,9 +184,11 @@ This is empty on purpose! Your code to build the resume will go here.
 	$("#header").append(HTMLheaderRole.replace("%data%", bio.role));
 	$("#header").append(HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage));
 	$("#header").append(HTMLbioPic.replace("%data%", bio.photo));
-	
+
 	$("#topContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
 	$("#topContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
+	
+
 	
 	
 	$("#header").append(HTMLskillsStart);
@@ -175,25 +208,36 @@ This is empty on purpose! Your code to build the resume will go here.
 	
 	
 	var displayWork = function (){
+		
+
+	for (var j=0; work && work.jobs && j < work.jobs.length; j++){
 
 
-	for (var j=0; work && work.jobs && j< work.jobs.length; j++){
+	$("#workExperience").append(HTMLworkStart);
+
 	var formattedEmployer =HTMLworkEmployer.replace("%data%",work.jobs[j].employer);
 	var formattedTitle=HTMLworkTitle.replace("%data%",work.jobs[j].title);
 	var formattedEmployerTitle= formattedEmployer + formattedTitle;
 	var formattedDates=HTMLworkDates.replace("%data%",work.jobs[j].dates);
 	var formattedLocation=HTMLworkLocation.replace("%data%",work.jobs[j].location);
 	var formattedDescription=HTMLworkDescription.replace("%data%",work.jobs[j].description);
+	var formattedCompanyLogo=HTMLCompanyLogo.replace("%data%",work.jobs[j].companyLogo);
+
+	$(".work-entry:last").append(formattedCompanyLogo);
+	$(".work-entry:last").append(HTMLInfoContainerStart);
 
 
-	$( "#workExperience").append(HTMLworkStart);
-	$(".work-entry:last").append(formattedEmployerTitle);
-	$(".work-entry:last").append(formattedTitle);
-	$(".work-entry:last").append(formattedLocation);
-	$(".work-entry:last").append(formattedDates);
-	$(".work-entry:last").append(formattedDescription);
+
+	$(".work-info-container:last").append(formattedEmployer);
+	$(".work-info-container:last").append(formattedTitle);
+	$(".work-info-container:last").append(formattedLocation);
+	$(".work-info-container:last").append(formattedDates);
+	$(".work-info-container:last").append(formattedDescription);
+
+
+
+
 	}
-
 
 	}
 
